@@ -1,0 +1,7 @@
+AutomationAndCSharpBasics/bin
+AutomationAndCSharpBasics/obj
+.DS_Store
+.vs
+.vscode
+
+# git rm -r --cached AutomationAndCSharpBasics/bin
