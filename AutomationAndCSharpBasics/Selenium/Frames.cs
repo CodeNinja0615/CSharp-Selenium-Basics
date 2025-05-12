@@ -16,7 +16,8 @@ public class Frames
         IWebElement frame = driver.FindElement(By.CssSelector(".demo-frame"));
         driver.SwitchTo().Frame(frame);
         Actions action = new Actions(driver);
-        action.DragAndDrop(driver.FindElement(By.Id("draggable")), driver.FindElement(By.Id("droppable"))).Build().Perform();
+        action.DragAndDrop(driver.FindElement(By.Id("draggable")), driver.FindElement(By.Id("droppable")))
+        .Build().Perform(); //----Drag and Drop Code
         driver.SwitchTo().DefaultContent();
         driver.FindElement(By.XPath("//a[contains(text(),'Resizable')]")).Click();
         driver.Close();
