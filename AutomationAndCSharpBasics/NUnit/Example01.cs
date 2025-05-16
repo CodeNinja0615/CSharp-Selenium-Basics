@@ -40,7 +40,7 @@ public class Example01
     }
 }
 
-
 // dotnet test --filter "Category=Regression"
 // dotnet test AutomationAndCSharpBasics.csproj --filter TestCategory=Regression
-// dotnet test CSharpSeleniumFramework.csproj --filter TestCategory=Regression --% -- TestRunParameters.Parameter(name=\"browserName\",value=\"Edge\")
+// dotnet test AutomationAndCSharpBasics.csproj --filter TestCategory=Sanity --% -- TestRunParameters.Parameter(name=\"browserName\",value=\"Edge\") --Win
+// dotnet test AutomationAndCSharpBasics.csproj --filter TestCategory=Sanity -- 'TestRunParameters.Parameter(name="browserName",value="Edge")' --MAC

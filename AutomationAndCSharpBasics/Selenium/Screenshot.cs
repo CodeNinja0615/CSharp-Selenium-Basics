@@ -15,7 +15,7 @@ public class ScreenshotTestClass
         Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
 
         string projectRoot = AppDomain.CurrentDomain.BaseDirectory;
-        string solutionRoot = Directory.GetParent(projectRoot).Parent.Parent.Parent.FullName;
+        string? solutionRoot = Directory.GetParent(projectRoot)?.Parent?.Parent?.Parent?.FullName;
         // Create "Screenshots" folder if it doesn't exist
         string screenshotsDir = Path.Combine(solutionRoot, "Screenshots");
         Directory.CreateDirectory(screenshotsDir);

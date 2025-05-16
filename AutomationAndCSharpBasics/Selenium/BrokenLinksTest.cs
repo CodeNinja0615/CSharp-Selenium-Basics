@@ -20,7 +20,7 @@ public class BrokenLinksTest
 
         foreach (var link in links)
         {
-            string url = link.GetDomAttribute("href");
+            string? url = link.GetDomAttribute("href");
 
             try
             {
