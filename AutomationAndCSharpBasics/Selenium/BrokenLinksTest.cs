@@ -24,7 +24,7 @@ public class BrokenLinksTest
 
             try
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url!);
                 request.Method = "HEAD";
 
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
