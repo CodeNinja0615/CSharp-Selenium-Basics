@@ -17,7 +17,7 @@ public class ScreenshotTestClass
         string projectRoot = AppDomain.CurrentDomain.BaseDirectory;
         string? solutionRoot = Directory.GetParent(projectRoot)?.Parent?.Parent?.Parent?.FullName;
         // Create "Screenshots" folder if it doesn't exist
-        string screenshotsDir = Path.Combine(solutionRoot, "Screenshots");
+        string screenshotsDir = Path.Combine(solutionRoot!, "Screenshots");
         Directory.CreateDirectory(screenshotsDir);
         // Generate timestamped filename
         string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
