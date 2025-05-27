@@ -1,3 +1,7 @@
+using OpenQA.Selenium;
+using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Interfaces;
+
 namespace AutomationAndCSharpBasics.Appium;
 
 public class EduGorillaTest: AndroidBaseTest
@@ -8,6 +12,6 @@ public class EduGorillaTest: AndroidBaseTest
     [Test]
     public void Test001()
     {
-        Thread.Sleep(5000);
+        // AppiumElement element = driver!.FindElement();
     }
 }
