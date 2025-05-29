@@ -10,7 +10,6 @@ public class ChildWindowTest : PageTest
     {
         // IBrowserContext context = await Browser.NewContextAsync();
         var page = await Context.NewPageAsync();
-        await page.PauseAsync();
         ILocator username = page.Locator("#username");
         ILocator password = page.Locator("#password");
         ILocator signIn = page.Locator("#signInBtn");

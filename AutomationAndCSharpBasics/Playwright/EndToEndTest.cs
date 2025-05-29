@@ -43,7 +43,7 @@ public class EndToEndTest : PageTest
         await page.Locator("text='Place Order'").ClickAsync();
         ILocator confirmationMsg = page.Locator(".hero-primary");
         await Expect(confirmationMsg).ToContainTextAsync("Thankyou for the order.");
-        await page.Locator("[routerlink*='/dashboard/myorders']").ClickAsync();
+        await page.Locator("button[routerlink*='/dashboard/myorders']").ClickAsync();
     }
 }
 

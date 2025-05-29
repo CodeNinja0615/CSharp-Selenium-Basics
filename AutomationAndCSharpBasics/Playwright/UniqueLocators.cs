@@ -9,7 +9,6 @@ public class UniqueLocators : PageTest
     public async Task UniqueLocatorsTest()
     {
         await Page.GotoAsync("https://rahulshettyacademy.com/angularpractice/");
-        await Page.PauseAsync();
         await Page.GetByLabel("Check me out if you Love IceCreams!").CheckAsync();
         await Page.GetByLabel("Employed").CheckAsync();
         await Page.GetByLabel("Gende").SelectOptionAsync("Female");
