@@ -8,8 +8,9 @@ public class ChildWindowTest : PageTest
     [Test]
     public async Task ChildWindow()
     {
-        IBrowserContext context = await Browser.NewContextAsync();
-        IPage page = await context.NewPageAsync();
+        // IBrowserContext context = await Browser.NewContextAsync();
+        var page = await Context.NewPageAsync();
+        await page.PauseAsync();
         ILocator username = page.Locator("#username");
         ILocator password = page.Locator("#password");
         ILocator signIn = page.Locator("#signInBtn");
@@ -17,13 +18,12 @@ public class ChildWindowTest : PageTest
         await page.WaitForLoadStateAsync(LoadState.NetworkIdle);
         await Expect(page).ToHaveTitleAsync("LoginPage Practise | Rahul Shetty Academy");
         // Get page after a specific action (e.g. clicking a link)
-        var newPage = await context.RunAndWaitForPageAsync(async () =>
+        var newPage = await Context.RunAndWaitForPageAsync(async () =>
         {
             await page.Locator(".blinkingText").Nth(0).ClickAsync();
         });
         await TestContext.Out.WriteAsync(await newPage.TitleAsync());
         // await newPage.CloseAsync();
-        await page.PauseAsync();
         await page.BringToFrontAsync();
         await username.FillAsync("rahulshettyacademy");
         await password.FillAsync("learning");
@@ -31,3 +31,4 @@ public class ChildWindowTest : PageTest
         await signIn.ClickAsync();
     }
 }
+// HEADED=1 dotnet test --filter "FullyQualifiedName~ChildWindowTest"

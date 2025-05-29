@@ -19,12 +19,15 @@ public class UIBasicsTest : PageTest
         ILocator username = Page.Locator("#username");
         ILocator password = Page.Locator("#password");
         ILocator signIn = Page.Locator("#signInBtn");
+        ILocator term = Page.Locator("#terms");
+        ILocator mainPage = Page.Locator(".navbar-brand").Nth(0);
         await Page.GotoAsync("https://rahulshettyacademy.com/loginpagePractise/");
         await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
         await Expect(Page).ToHaveTitleAsync("LoginPage Practise | Rahul Shetty Academy");
         await username.FillAsync("rahulshettyacadem");
         await password.FillAsync("learning");
-        await Page.Locator("#terms").ClickAsync();
+        await term.ClickAsync();
+        await Expect(term).ToBeCheckedAsync();
         await signIn.ClickAsync();
         await Expect(Page.Locator(".alert-danger[style*='block']")).ToContainTextAsync("Incorrect");
         await Expect(Page.Locator("[href*='rahulshetty']")).ToHaveAttributeAsync("class", "blinkingText");
@@ -32,7 +35,8 @@ public class UIBasicsTest : PageTest
         await username.FillAsync("rahulshettyacademy");
         await password.FillAsync("learning");
         await signIn.ClickAsync();
-        await Expect(Page.Locator(".navbar-brand").Nth(0)).ToHaveTextAsync("ProtoCommerce");
+        await mainPage.WaitForAsync(new LocatorWaitForOptions { Timeout = 60000 });
+        await Expect(mainPage).ToHaveTextAsync("ProtoCommerce");
         // await Page.WaitForSelectorAsync("");
         IReadOnlyList<String> cartTitles = await Page.Locator(".card-body a").AllTextContentsAsync();
         await TestContext.Out.WriteLineAsync(cartTitles[0]);
