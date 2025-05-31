@@ -31,6 +31,10 @@ public class MainEntryPoint /*:InterfaceDemo /*: AbstractionDemo /*: Constructor
 
         SwitchCaseDemo.SwitchCaseDemoTest(EnumDemo.Level2);
 
+        string email = "akhtarsameer743@gmail.com";
+        bool isValid = EmailValidation.IsValidEmail(email);
+        Console.WriteLine(isValid);
+
     }
 
     /*  Interface
