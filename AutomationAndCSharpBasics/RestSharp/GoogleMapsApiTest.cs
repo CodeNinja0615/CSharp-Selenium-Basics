@@ -12,16 +12,16 @@ public class GoogleMapsApiTest
     [Test]
     public void ApiTest()
     {
-        Console.WriteLine("▶️ ADD PLACE");
+        Console.WriteLine("ADD PLACE");
         AddPlace();
 
-        Console.WriteLine("\n▶️ GET PLACE");
+        Console.WriteLine("GET PLACE");
         GetPlace();
 
-        Console.WriteLine("\n▶️ UPDATE PLACE");
+        Console.WriteLine("UPDATE PLACE");
         UpdatePlace();
 
-        Console.WriteLine("\n▶️ DELETE PLACE");
+        Console.WriteLine("DELETE PLACE");
         DeletePlace();
     }
 
