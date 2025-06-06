@@ -10,13 +10,19 @@ public class AlertTest : PageTest
     {
         await Page.GotoAsync("https://rahulshettyacademy.com/AutomationPractice/");
         await Page.Locator("#name").FillAsync("Sameer");
-        await Page.Locator("#alertbtn").ClickAsync();
+
+        var tcs = new TaskCompletionSource<string>();
         Page.Dialog += async (_, dialog) =>
         {
-            await TestContext.Out.WriteAsync(dialog.Message);
+            await TestContext.Out.WriteLineAsync(dialog.Message);
             Console.WriteLine("Dialog appeared: " + dialog.Message);
             await dialog.AcceptAsync();
+            tcs.SetResult(dialog.Message);
         };
+
+        await Page.Locator("#alertbtn").ClickAsync();
+        var dialogMessage = await tcs.Task;
+        Assert.That(dialogMessage, Is.EqualTo("Hello Sameer, share this practice page and share your knowledge"));
     }
 }
 // HEADED=1 dotnet test --filter "FullyQualifiedName~AlertTest"
